@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Road to Shelter</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; color: #333; }
+    header { background: #007acc; color: white; padding: 40px 20px; text-align: center; }
+    header h1 { margin: 0; font-size: 2.5em; }
+    header p { font-size: 1.2em; margin-top: 10px; }
+    section { padding: 40px 20px; max-width: 1000px; margin: auto; }
+    h2 { color: #007acc; }
+    .features { display: flex; flex-wrap: wrap; justify-content: space-around; }
+    .feature { background: white; padding: 20px; margin: 10px; border-radius: 10px; flex: 1 1 250px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s; }
+    .feature:hover { transform: translateY(-5px); }
+    .feature img { width: 80px; margin-bottom: 15px; }
+    .feature h3 { margin: 10px 0; }
+    #detail { background: white; padding: 30px; margin: 20px 0; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: none; }
+    #detail img { width: 300px; margin-top: 15px; border-radius: 10px; }
+    .badge { background: gold; padding: 10px 20px; border-radius: 20px; font-weight: bold; display: inline-block; margin-top: 10px; }
+    .cta { text-align: center; margin-top: 30px; }
+    .cta button { background: #007acc; color: white; border: none; padding: 15px 30px; font-size: 1em; border-radius: 8px; cursor: pointer; }
+    .cta button:hover { background: #005f99; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Road to Shelter</h1>
+  <p>外国人観光客の安全を守る、災害対応サポートアプリ</p>
+</header>
+
+<section>
+  <h2>アプリの主な機能</h2>
+  <div class="features">
+    <div class="feature" onclick="showDetail('route')">
+      <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="避難所ルート">
+      <h3>避難所ルート案内</h3>
+    </div>
+    <div class="feature" onclick="showDetail('board')">
+      <img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="国別掲示板">
+      <h3>国別掲示板</h3>
+    </div>
+    <div class="feature" onclick="showDetail('daily')">
+      <img src="https://cdn-icons-png.flaticon.com/512/3523/3523063.png" alt="日常利用">
+      <h3>日常利用</h3>
+    </div>
+  </div>
+
+  <div id="detail">
+    <h3 id="detail-title"></h3>
+    <p id="detail-text"></p>
+    <img id="detail-img" src="" alt="アプリ画面モック">
+  </div>
+</section>
+
+<section>
+  <h2>法人向け価値</h2>
+  <p>宿泊施設の信頼性向上やCSRアピールに。</p>
+  <div class="badge">災害対応済み施設</div>
+</section>
+
+<section>
+  <h2>導入・価格</h2>
+  <p>対象: 宿泊施設</p>
+  <p>月額: 20,000円（標準プラン）</p>
+</section>
+
+<section class="cta">
+  <h2>まずはトライアル</h2>
+  <button>資料ダウンロード</button>
+</section>
+
+<script>
+  const details = {
+    route: {
+      title: "避難所ルート案内",
+      text: "地図データを事前ダウンロードすればオフラインでもルートを確認可能。現在地から最寄りの避難所まで、安全かつ迅速に移動できます。",
+      img: "/mnt/data/A_set_of_three_smartphone_screens_displays_the_use.png"
+    },
+    board: {
+      title: "国別掲示板",
+      text: "母国語で情報共有。滞在中の外国人同士で安心コミュニケーションが可能です。災害時には安全情報や注意事項をリアルタイムで確認できます。",
+      img: "/mnt/data/A_set_of_three_smartphone_screens_displays_the_use.png"
+    },
+    daily: {
+      title: "日常利用",
+      text: "普段から利用できる施設情報として、トイレや無料Wi-Fiの場所を簡単に確認できます。観光中の快適な移動や休憩にも役立ちます。",
+      img: "/mnt/data/A_set_of_three_smartphone_screens_displays_the_use.png"
+    }
+  };
+
+  function showDetail(key) {
+    const detail = details[key];
+    document.getElementById('detail-title').innerText = detail.title;
+    document.getElementById('detail-text').innerText = detail.text;
+    document.getElementById('detail-img').src = detail.img;
+    document.getElementById('detail').style.display = 'block';
+    window.scrollTo({ top: document.getElementById('detail').offsetTop, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
